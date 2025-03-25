@@ -175,6 +175,9 @@ SELECT * FROM PEDIDOS;
 Este projeto faz parte das aulas de Arquitetura Orientada a Serviços (SOA) e Web Services, com o objetivo de ensinar os alunos a:
 
 ✅ Criar e consumir APIs REST com Spring Boot
+<br>
 ✅ Utilizar Spring Data JPA para persistência de dados
+<br>
 ✅ Configurar um banco de dados H2 em memória
+<br>
 ✅ Carregar dados iniciais com um DataLoader
