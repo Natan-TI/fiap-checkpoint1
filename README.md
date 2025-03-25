@@ -23,9 +23,6 @@ cd fiap-checkpoint1
 Garanta que você tem o Java 17+ e o Maven instalados.
 Se precisar instalar o Maven, siga a documentação oficial.
 
-🔄 Persistência dos Dados
-Agora o banco de dados H2 foi configurado para ser persistente entre reinicializações. Isso significa que os produtos cadastrados não serão apagados ao reiniciar a aplicação.
-
 ### 📌 Configuração do Banco de Dados no application.properties
 ```sh
 # Configuração do H2 (banco em memória)
@@ -90,66 +87,76 @@ mvn spring-boot:run
 ```
 A aplicação será iniciada em http://localhost:8080 🚀
 
-### **🛠️ Endpoints da API**
+## **🛠️ Endpoints da API**
 Aqui estão os principais endpoints da API e como testá-los no Postman ou cURL.
 
 **🔹 1. Listar Todos os Pedidos**
+<br>
 📌 GET /pedidos
+
 ```sh
 curl -X GET http://localhost:8080/pedidos
 ```
 ![Exemplo de Listagem de Pedidos](images/getAll.png)
 
 **🔹 2. Buscar Pedido por ID**
+<br>
 📌 GET /pedidos/{id}
+
 ```sh
 curl -X GET http://localhost:8080/pedidos/1
 ```
-![Exemplo de Listagem de Pedidos](images/getByUd.png)
+![Exemplo de Busca por ID](images/getById.png)
 
 **🔹 3. Criar um Novo Pedido**
+<br>
 📌 POST /pedidos 📌 Body (JSON):
+
 ```json
 {
   "clienteNome": "Natan Santos",
-  "valorTotal": 500.0
+  "valorTotal": 100.0
 }
 ```
 ```sh
 curl -X POST http://localhost:8080/pedidos -H "Content-Type: application/json" -d '{"clienteNome": "Natan Santos", "valorTotal": 500.0}'
 ```
-![Exemplo de Listagem de Pedidos](images/create.png)
+![Exemplo de Criação de pedido](images/create.png)
 
 **🔹 4. Atualizar um Pedido**
+<br>
 📌 PUT /pedidos/{id} 📌 Body (JSON):
+
 ```json
 {
-  "clienteNome": "Kayky Paschoal",
-  "valorTotal": 220.5
+  "clienteNome": "natan",
+  "valorTotal": 100.5
 }
 ```
 ```sh
 curl -X PUT http://localhost:8080/pedidos/1 -H "Content-Type: application/json" -d '{"clienteNome": "Kayky Paschoal", "valorTotal": 220.5}'
 ```
-![Exemplo de Listagem de Pedidos](images/update.png)
+![Exemplo de Atualização de pedido](images/update.png)
 
 **🔹 5. Excluir um Pedido**
+<br>
 📌 DELETE /pedidos/{id}
+
 ```sh
 curl -X DELETE http://localhost:8080/pedidos/1
 ```
-![Exemplo de Listagem de Pedidos](images/delete.png)
+![Exemplo de Exclusão de pedido](images/delete.png)
 
-**🗄️ Acessar o Banco de Dados H2**
+## **🗄️ Acessar o Banco de Dados H2**
 O projeto usa H2 Database para armazenar os dados temporariamente.
 
 Passos para acessar o banco de dados H2:
-1️⃣ Inicie a aplicação (mvn spring-boot:run).
+### **1️⃣ Inicie a aplicação (mvn spring-boot:run).**
 
-2️⃣ Acesse no navegador:
+### **2️⃣ Acesse no navegador:**
 http://localhost:8080/h2-console
 
-3️⃣ Configuração de Acesso:
+### **3️⃣ Configuração de Acesso:**
 ```sh
 JDBC URL: jdbc:h2:mem:testdb
 
@@ -158,13 +165,13 @@ Usuário: sa
 Senha: (deixe em branco)
 ```
 
-4️⃣ Execute a consulta para visualizar os pedidos:
+### **4️⃣ Execute a consulta para visualizar os pedidos:**
 ```sql
 SELECT * FROM PEDIDOS;
 ```
 
-👨‍🏫 Sobre o Projeto
-Este projeto faz parte das aulas de Desenvolvimento Web com Spring Boot, com o objetivo de ensinar os alunos a:
+## **👨‍🏫 Sobre o Projeto**
+Este projeto faz parte das aulas de Arquitetura Orientada a Serviços (SOA) e Web Services, com o objetivo de ensinar os alunos a:
 
 ✅ Criar e consumir APIs REST com Spring Boot
 ✅ Utilizar Spring Data JPA para persistência de dados
