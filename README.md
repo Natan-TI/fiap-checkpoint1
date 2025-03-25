@@ -169,6 +169,7 @@ Senha: (deixe em branco)
 ```sql
 SELECT * FROM PEDIDOS;
 ```
+![Exemplo de Execução do banco H2](images/h2.png)
 
 ## **👨‍🏫 Sobre o Projeto**
 Este projeto faz parte das aulas de Arquitetura Orientada a Serviços (SOA) e Web Services, com o objetivo de ensinar os alunos a:
