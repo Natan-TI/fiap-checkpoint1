@@ -17,6 +17,7 @@ Este projeto é uma API REST desenvolvida com **Spring Boot**, utilizada para de
 ```sh
 git clone https://github.com/Natan-TI/fiap-checkpoint1
 cd fiap-checkpoint1
+```
 
 2️⃣ Configurar o Ambiente
 Garanta que você tem o Java 17+ e o Maven instalados.
@@ -26,6 +27,7 @@ Se precisar instalar o Maven, siga a documentação oficial.
 Agora o banco de dados H2 foi configurado para ser persistente entre reinicializações. Isso significa que os produtos cadastrados não serão apagados ao reiniciar a aplicação.
 
 📌 Configuração do Banco de Dados no application.properties
+```sh
 # Configuração do H2 (banco em memória)
 spring.datasource.url=jdbc:h2:mem:testdb
 spring.datasource.driverClassName=org.h2.Driver
@@ -39,6 +41,7 @@ spring.jpa.hibernate.ddl-auto=update
 # Console do H2 habilitado
 spring.h2.console.enabled=true
 spring.h2.console.path=/h2-console
+```
 
 📥 Carregamento Inicial de Dados com DataLoader
 Para garantir que o banco de dados tenha um conjunto inicial de produtos ao iniciar a aplicação, utilizamos um DataLoader.
@@ -46,6 +49,7 @@ Para garantir que o banco de dados tenha um conjunto inicial de produtos ao inic
 📌 Implementação do DataLoader.java
 package br.com.fiap.checkpoint1.config;
 
+```java
 import java.util.List;
 
 import org.springframework.boot.CommandLineRunner;
@@ -77,11 +81,13 @@ public class DataLoader {
         };
     }
 }
+```
 
 3️⃣ Rodar o Projeto
 Para iniciar o servidor, execute:
-
+```sh
 mvn spring-boot:run
+```
 A aplicação será iniciada em http://localhost:8080 🚀
 
 🛠️ Endpoints da API
@@ -89,7 +95,10 @@ Aqui estão os principais endpoints da API e como testá-los no Postman ou cURL.
 
 🔹 1. Listar Todos os Pedidos
 📌 GET /pedidos
+```sh
 curl -X GET http://localhost:8080/pedidos
+```
+![Exemplo de Listagem de Pedidos](images/getAll.png)
 
 🔹 2. Buscar Pedido por ID
 📌 GET /pedidos/{id}
